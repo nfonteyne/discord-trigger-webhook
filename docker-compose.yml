@@ -1,0 +1,9 @@
+services:
+  discord-bot:
+    build: .
+    container_name: calendar-bot
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - WEBHOOK_USER=${WEBHOOK_USER}
+      - WEBHOOK_PASSWORD=${WEBHOOK_PASSWORD}
+    restart: unless-stopped
