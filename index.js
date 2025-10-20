@@ -18,7 +18,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 client.on("messageCreate", async (message) => {
 
-  // console.log(message)
+  console.log(message)
 
   if (!message?.author.bot && message.content.toLowerCase().startsWith('!get-availability')) {
     try {
