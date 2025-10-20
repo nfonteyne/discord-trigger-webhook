@@ -42,7 +42,7 @@ client.on("messageCreate", async (message) => {
           console.log('Webhook Response Body:', responseText);
 
           if (response.status === 200){
-            message.reply(responseText.allItemsAvailable)
+            message.reply(responseText)
           } else {
             message.reply('⭕ Error when trying to get the datas')
           }  
