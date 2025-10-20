@@ -18,7 +18,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 client.on("messageCreate", async (message) => {
 
-  console.log(message)
+  // console.log(message)
 
   if (!message?.author.bot && message.content.toLowerCase().startsWith('!get-availability')) {
     try {
@@ -31,18 +31,20 @@ client.on("messageCreate", async (message) => {
             headers: headers,
           });
 
+          message.reply('✅ Request succesfully sent to the workflow !')
+
           // Log response status and headers
           console.log('Webhook Response Status:', response.status);
-          console.log('Webhook Response Headers:', response.headers);
+          // console.log('Webhook Response Headers:', response.headers);
 
           // Get and log the response body
           const responseText = await response.text();
           console.log('Webhook Response Body:', responseText);
 
           if (response.status === 200){
-            message.reply('✅ Workflow is started !')
+            message.reply(responseText.allItemsAvailable)
           } else {
-            message.reply('⭕ Error when trying to start the worflow')
+            message.reply('⭕ Error when trying to get the datas')
           }  
 
         } catch (error) {
